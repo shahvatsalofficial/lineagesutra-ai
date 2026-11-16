@@ -1,0 +1,76 @@
+$ lineagesutra upstream --input C:\Users\VATSAL~1\AppData\Local\Temp\lineagesutra-proof-graph.json --table email_metrics --column address
+(exit 0)
+
+{
+  "format": "lineagesutra.upstream.v1",
+  "inputIntegrity": "1034fe6e71bbb108944fe04e0c332db161f976c8f8aa5ba408ac68157f123a0c",
+  "target": {
+    "table": "email_metrics",
+    "column": "address",
+    "found": true
+  },
+  "result": "SUPPORTED_SUBSET_TRACE",
+  "upstream": [
+    {
+      "node": "customers_public.email",
+      "dataset": "customers_public",
+      "field": "email",
+      "depth": 1,
+      "kind": "direct",
+      "origin": false,
+      "path": [
+        {
+          "from": "customers_public.email",
+          "to": "customers_public.email",
+          "kind": "direct",
+          "source": {
+            "file": "02_email_metrics.sql",
+            "line": 2,
+            "col": 8
+          }
+        }
+      ]
+    },
+    {
+      "node": "customers.email",
+      "dataset": "customers",
+      "field": "email",
+      "depth": 2,
+      "kind": "direct",
+      "origin": true,
+      "path": [
+        {
+          "from": "customers_public.email",
+          "to": "customers_public.email",
+          "kind": "direct",
+          "source": {
+            "file": "02_email_metrics.sql",
+            "line": 2,
+            "col": 8
+          }
+        },
+        {
+          "from": "customers.email",
+          "to": "customers.email",
+          "kind": "direct",
+          "source": {
+            "file": "01_customers_public.sql",
+            "line": 2,
+            "col": 12
+          }
+        }
+      ]
+    }
+  ],
+  "origins": [
+    "customers.email"
+  ],
+  "indirectInfluences": [],
+  "notes": [
+    "Upstream trace follows static column edges only; runtime-only inputs are not visible."
+  ],
+  "integrity": {
+    "algorithm": "sha256",
+    "hash": "5721330d05319f352c40c76d28fbf90fe1b5b6be950d0fc8d79e6ef014a4218a"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "lineagesutra",
+  "description": "Vatsal Shah - evidence-first read-only SQL lineage starter",
+  "version": "0.1.0",
+  "author": {
+    "name": "Vatsal Shah"
+  },
+  "skills": "./skills/",
+  "agents": "./.claude/agents/"
+}

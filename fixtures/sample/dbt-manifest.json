@@ -1,0 +1,8 @@
+{
+  "metadata": {"dbt_schema_version":"https://schemas.getdbt.com/dbt/manifest/v12.json","project_name":"example"},
+  "sources": {"source.example.customers": {"resource_type":"source","name":"customers","columns":{"id":{"name":"id"},"email":{"name":"email"}}}},
+  "nodes": {
+    "model.example.customers_public": {"resource_type":"model","name":"customers_public","columns":{"id":{"name":"id"},"email":{"name":"email"}},"depends_on":{"nodes":["source.example.customers"]}},
+    "model.example.email_metrics": {"resource_type":"model","name":"email_metrics","columns":{"address":{"name":"address"}},"depends_on":{"nodes":["model.example.customers_public"]}}
+  }
+}

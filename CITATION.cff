@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use LineageSutra AI, please cite it as below."
+title: "LineageSutra AI: offline, evidence-first SQL lineage and schema-change impact analysis"
+type: software
+version: 0.2.0
+date-released: 2026-11-16
+license: Apache-2.0
+repository-code: "https://github.com/shahvatsalofficial/lineagesutra-ai"
+url: "https://github.com/shahvatsalofficial/lineagesutra-ai"
+authors:
+  - family-names: Shah
+    given-names: Vatsal
+    alias: shahvatsalofficial
+keywords:
+  - data lineage
+  - column-level lineage
+  - schema change impact
+  - SQL
+  - dbt
+  - agent skills
+  - MCP
+abstract: >-
+  Zero-dependency Node.js CLI and library that builds a column-level lineage graph from SQL files,
+  rehearses schema changes with proof paths, separates confirmed from possible impact, and writes
+  sealed Markdown, HTML and JSON reports. Offline and read-only.

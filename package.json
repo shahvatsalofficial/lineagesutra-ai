@@ -1,0 +1,91 @@
+{
+  "name": "lineagesutra-ai",
+  "version": "0.2.0",
+  "description": "LineageSutra AI: offline, evidence-first SQL data lineage and schema-change impact CLI with column-level lineage, dbt manifest import, an MCP server, audit reports (MD/HTML/JSON) and 25 portable Agent Skills for Claude Code, Cursor, Codex, Copilot and Gemini CLI. No API keys, no network, no database connection.",
+  "author": {
+    "name": "Vatsal Shah",
+    "url": "https://github.com/shahvatsalofficial"
+  },
+  "license": "Apache-2.0",
+  "private": false,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "lineagesutra": "packages/cli/index.mjs",
+    "lineagesutra-ai": "packages/cli/index.mjs"
+  },
+  "main": "packages/core/index.mjs",
+  "exports": {
+    ".": "./packages/core/index.mjs",
+    "./reporting": "./packages/reporting/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node scripts/run-tests.mjs",
+    "doctor": "node packages/cli/index.mjs doctor",
+    "demo": "node scripts/demo.mjs",
+    "scan:demo": "node packages/cli/index.mjs scan --root fixtures/sample/sql --out examples/reports/lineage.json",
+    "audit": "node packages/cli/index.mjs audit --out examples/audit --force",
+    "pack:check": "npm pack --dry-run",
+    "proof": "node scripts/proof.mjs"
+  },
+  "homepage": "https://github.com/shahvatsalofficial/lineagesutra-ai#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahvatsalofficial/lineagesutra-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shahvatsalofficial/lineagesutra-ai/issues"
+  },
+  "keywords": [
+    "data-lineage",
+    "column-level-lineage",
+    "sql-lineage",
+    "schema-change",
+    "impact-analysis",
+    "dbt",
+    "openlineage",
+    "data-contracts",
+    "data-governance",
+    "sql-parser",
+    "agent-skills",
+    "claude-code",
+    "cursor",
+    "codex",
+    "github-copilot",
+    "gemini-cli",
+    "mcp",
+    "model-context-protocol",
+    "audit",
+    "evidence",
+    "cli",
+    "llm",
+    "offline"
+  ],
+  "files": [
+    "packages",
+    "scripts/install-skills.mjs",
+    "skills",
+    "agents",
+    ".claude/agents",
+    "fixtures",
+    "schemas",
+    "rules",
+    "policies",
+    "workflows",
+    "docs",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "CHANGELOG.md",
+    "SECURITY.md",
+    "llms.txt"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

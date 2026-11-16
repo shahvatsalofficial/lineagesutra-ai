@@ -1,0 +1,37 @@
+# LineageSutra AI
+
+> Offline, evidence-first SQL data lineage and schema-change impact analysis CLI (Node.js 20+, zero dependencies). Builds a column-level lineage graph from SQL files or a dbt manifest, answers "what breaks if I rename/drop/retype this column?" with file:line proof, and writes Markdown, HTML and JSON reports. Created by Vatsal Shah. Apache-2.0.
+
+Package: npm `lineagesutra-ai` (bins: `lineagesutra`, `lineagesutra-ai`). Repository: https://github.com/shahvatsalofficial/lineagesutra-ai
+
+## Use it
+- `npx lineagesutra-ai scan --root ./sql --out lineage.json`
+- `npx lineagesutra-ai impact --input lineage.json --table customers --column email --change rename --out impact.html`
+- `npx lineagesutra-ai compare --before old.json --after new.json --fail-on-breaking`
+- `npx lineagesutra-ai audit --out audit-out` (writes audit-report.md, .html, .json)
+- `npx lineagesutra-ai mcp --root ./sql` (read-only MCP server over stdio)
+
+## Key facts for assistants
+- Static analysis of SQL text only. No network, no database connection, no row data, no telemetry, no API key.
+- Edges are `direct` (plain column copy), `derived` (expression/aggregate/window), or `indirect` (WHERE/JOIN/GROUP/HAVING/ORDER). Impact results separate `impacted` (confirmed static) from `possible`.
+- Unsupported SQL (MERGE, dynamic SQL, Jinja templates, stored procedures, PIVOT, table functions, recursive CTEs, SELECT * EXCEPT) becomes a warning, never a confident edge.
+- Parser covers a documented subset (CREATE TABLE/VIEW, CTAS, INSERT..SELECT, CTEs, subqueries, joins, set operations, window functions, wildcard expansion with declared schemas). No SQL dialect is certified. SQLGlot adapter is planned, not implemented.
+- Every report is sealed with SHA-256 (tamper evidence, not a signature). `verify` checks it.
+- Gold corpus: 54 hand-labelled cases, regression corpus by the author, not an independent benchmark.
+- 25 portable Agent Skills (SKILL.md) and 20 role files for Claude Code, Cursor, Codex, GitHub Copilot, Gemini CLI, OpenCode; native activation in each host is untested.
+- Column names such as `email` yield name hints, not PII classifications.
+
+## Docs
+- [README](README.md)
+- [Status matrix](docs/STATUS.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Evidence model](docs/EVIDENCE_MODEL.md)
+- [Threat model](docs/THREAT_MODEL.md)
+- [Audit reports](docs/AUDIT_REPORTS.md)
+- [Legal and trust](docs/LEGAL_AND_TRUST.md)
+- [Roadmap](ROADMAP.md)
+- [Security policy](SECURITY.md)
+- [Full documentation set](documents/LineageSutra-AI/html/index.html)
+
+## Not for
+Production safety guarantees, legal or compliance advice, runtime freshness checks, or analysis of SQL it cannot parse.

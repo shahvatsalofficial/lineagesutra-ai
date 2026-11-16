@@ -1,0 +1,175 @@
+# LineageSutra AI - Independent audit report
+
+**Format:** `lineagesutra.audit.v1`  
+**Review status:** PASS  
+**Tool:** lineagesutra-ai 0.2.0 (created by Vatsal Shah)
+
+**Overall:** PASS  
+**Checks:** 28 passed, 0 failed, 7 not run of 35
+
+> Self-audit run by lineagesutra-ai 0.2.0. PASS means every executed check passed; it is not a certification, a guarantee, or an independent third-party opinion. Items that were not verified are listed under "What was NOT verified".
+
+## Lineage accuracy on the gold corpus
+
+**Status:** PASS
+
+Hand-labelled corpus of 54 cases, scored on exact edge sets (column, indirect and table edges) plus required warnings. The labels were written by the author before the parser was run, so this is a regression corpus, not an independent benchmark, and it is small. Tags: basic 4/4, join 6/6, negative 11/11, expr 9/9, postgres 2/2, indirect 3/3, cte 2/2, subquery 3/3, setop 2/2, wildcard 5/5, ddl 7/7, naming 5/5, tsql 1/1, mysql 1/1, adversarial 3/3, dbt 1/1.
+
+| Case | Status | Detail |
+| --- | --- | --- |
+| direct-copy | PASS | 3 TP, 0 FP, 0 FN |
+| qualified-alias | PASS | 2 TP, 0 FP, 0 FN |
+| alias-without-as | PASS | 2 TP, 0 FP, 0 FN |
+| join-qualified | PASS | 6 TP, 0 FP, 0 FN |
+| join-unqualified-resolved-by-schema | PASS | 6 TP, 0 FP, 0 FN |
+| join-ambiguous-column | PASS | 4 TP, 0 FP, 0 FN; warnings: column-unknown: select item: id: ambiguous/unresolved column owner |
+| join-using | PASS | 6 TP, 0 FP, 0 FN |
+| self-join | PASS | 4 TP, 0 FP, 0 FN |
+| expression-arithmetic | PASS | 4 TP, 0 FP, 0 FN |
+| aggregate-group-by | PASS | 4 TP, 0 FP, 0 FN |
+| case-expression | PASS | 3 TP, 0 FP, 0 FN |
+| cast-forms | PASS | 3 TP, 0 FP, 0 FN |
+| window-function | PASS | 4 TP, 0 FP, 0 FN |
+| nested-functions | PASS | 3 TP, 0 FP, 0 FN |
+| extract-and-trunc | PASS | 3 TP, 0 FP, 0 FN |
+| interval-literal | PASS | 2 TP, 0 FP, 0 FN |
+| count-star | PASS | 1 TP, 0 FP, 0 FN |
+| distinct | PASS | 2 TP, 0 FP, 0 FN |
+| filter-order-limit | PASS | 4 TP, 0 FP, 0 FN |
+| having-clause | PASS | 4 TP, 0 FP, 0 FN |
+| cte-chain-propagates-filter | PASS | 3 TP, 0 FP, 0 FN |
+| subquery-in-from | PASS | 2 TP, 0 FP, 0 FN |
+| scalar-subquery-correlated | PASS | 6 TP, 0 FP, 0 FN |
+| in-subquery-filter | PASS | 5 TP, 0 FP, 0 FN |
+| union-all | PASS | 4 TP, 0 FP, 0 FN |
+| union-column-count-mismatch | PASS | 4 TP, 0 FP, 0 FN; warnings: column-unknown: Set operation branches have 2 vs 1 columns; positional lineage not trusted |
+| wildcard-known-schema | PASS | 3 TP, 0 FP, 0 FN |
+| wildcard-qualified-join | PASS | 7 TP, 0 FP, 0 FN |
+| wildcard-unknown-schema | PASS | 1 TP, 0 FP, 0 FN; warnings: column-unknown: Wildcard over ext cannot be expanded (schema not declared in scanned sources) |
+| wildcard-through-view | PASS | 6 TP, 0 FP, 0 FN |
+| wildcard-defined-later-in-file | PASS | 4 TP, 0 FP, 0 FN |
+| ctas | PASS | 2 TP, 0 FP, 0 FN |
+| insert-select-column-list | PASS | 3 TP, 0 FP, 0 FN |
+| insert-select-declared-schema | PASS | 3 TP, 0 FP, 0 FN |
+| insert-values-no-lineage | PASS | 0 TP, 0 FP, 0 FN |
+| view-column-list | PASS | 3 TP, 0 FP, 0 FN |
+| materialized-view | PASS | 2 TP, 0 FP, 0 FN |
+| or-replace-if-not-exists | PASS | 2 TP, 0 FP, 0 FN |
+| schema-qualified-suffix-resolution | PASS | 2 TP, 0 FP, 0 FN |
+| quoted-identifiers-fold-to-lowercase | PASS | 2 TP, 0 FP, 0 FN |
+| tsql-bracket-identifiers | PASS | 2 TP, 0 FP, 0 FN |
+| backtick-identifiers | PASS | 2 TP, 0 FP, 0 FN |
+| unicode-identifiers | PASS | 2 TP, 0 FP, 0 FN |
+| comment-containing-fake-sql | PASS | 2 TP, 0 FP, 0 FN |
+| string-literal-containing-from | PASS | 2 TP, 0 FP, 0 FN |
+| dollar-quoted-body-ignored | PASS | 2 TP, 0 FP, 0 FN |
+| merge-unsupported | PASS | 0 TP, 0 FP, 0 FN; warnings: unsupported: MERGE statements are not analyzed |
+| dynamic-sql-unsupported | PASS | 0 TP, 0 FP, 0 FN; warnings: unsupported: Dynamic SQL (EXECUTE IMMEDIATE / EXEC) cannot be analyzed \| unsupported: EXECUTE statements are not analyzed |
+| jinja-template-unsupported | PASS | 0 TP, 0 FP, 0 FN; warnings: unsupported: Templated/dynamic SQL cannot be fully resolved \| unsupported: Templated relation cannot be resolved |
+| recursive-cte-flagged | PASS | 2 TP, 0 FP, 0 FN; warnings: unsupported: Recursive CTE r: self-reference lineage is not expanded |
+| table-function-flagged | PASS | 0 TP, 0 FP, 0 FN; warnings: column-unknown: select item: a: ambiguous/unresolved column owner \| unsupported: Table function unnest() is not analyzed |
+| standalone-select-flagged | PASS | 0 TP, 0 FP, 0 FN; warnings: unsupported: Standalone SELECT has no target dataset; only CREATE TABLE/VIEW AS and INSERT ... SELECT are analyzed |
+| unclosed-ddl-flagged | PASS | 0 TP, 0 FP, 0 FN; warnings: parse: Unclosed DDL for t |
+| view-cycle-flagged | PASS | 0 TP, 0 FP, 0 FN; warnings: column-unknown: Wildcard over a cannot be expanded (schema incomplete) \| column-unknown: Wildcard over b cannot be expanded (schema incomplete) \| cycle: Dependency cycle: a -> b -> a |
+
+## Safety, integrity and adversarial inputs
+
+**Status:** PASS
+
+Read-only behaviour, determinism, tamper detection, hostile files, hostile SQL, fuzzing and offline guarantees, each verified by running code during this audit.
+
+| Check | Status | Detail |
+| --- | --- | --- |
+| scan is read-only (source tree hash unchanged) | PASS | SHA-256 of every fixture file identical before and after scanning |
+| scan is deterministic | PASS | two scans produce seal 1034fe6e71bbb108... |
+| output is independent of file order | PASS | forward and reversed file order give the same seal |
+| tampering is detected (3 mutation kinds) | PASS | edited node, deleted edge and forged hash all fail verification |
+| impact is monotonic when edges are added | PASS | adding an edge never removes a finding |
+| compare reports an added edge | PASS | delta: column:customers.email->extra_view.mail#direct |
+| core and reporting contain no network or subprocess code | PASS | static check of packages/core and packages/reporting (audit.mjs excluded: it spawns the test runner on request) |
+| HTML report escapes hostile dataset names | PASS | a dataset named <script>alert(1)</script> is rendered as inert text |
+| Markdown report keeps hostile names inside code spans | PASS | names are wrapped in backticks, never interpreted as markup |
+| symlink escape test | NOT_RUN | cannot create symlinks on this host (EPERM) |
+| oversized SQL file is rejected | PASS | a 2.1 MB file is refused (limit 2,000,000 bytes) |
+| file-count cap is enforced | PASS | 6 files with maxFiles=3 is refused |
+| instructions inside SQL comments are inert data | PASS | comment text is dropped by the tokenizer and never reaches reports or agents |
+| ambiguous column ownership never yields a definite edge | PASS | unqualified column over two undeclared tables becomes a warning |
+| 3000 seeded random token streams never crash or hang the parser | PASS | 0 unexpected exceptions; slowest input 0.8 ms |
+| 500-deep nested parentheses are handled | PASS | finished in 1 ms without stack overflow |
+| 5000-column table and view parse correctly | PASS | 5000 column edges in 268 ms |
+
+## Performance (measured on this machine)
+
+**Status:** PASS
+
+Synthetic workload, not your data. CPU: Intel(R) Core(TM) Ultra 7 155U, 14 threads.
+
+| Check | Status | Detail |
+| --- | --- | --- |
+| scan of 2,000 chained views over 50 tables | PASS | median 708 ms over 3 runs (min 651, max 824); 550 files, 232 KiB SQL, 19900 edges |
+| synthetic graph has no unexpected warnings | PASS | 0 warnings |
+| impact traversal on a 20,000-dataset graph | PASS | median 1085 ms over 5 runs; 19999 downstream columns found (expected 19999) |
+
+## Package and agent-skill integrity
+
+**Status:** PASS
+
+Structure, naming and secret checks over the files that ship in this package.
+
+| Check | Status | Detail |
+| --- | --- | --- |
+| 25 skills, each with matching name frontmatter | PASS | 25 skill directories, all with valid SKILL.md |
+| 20 agent roles in manifest and .claude/agents, all files exist | PASS | 20 manifest entries, 20 Claude Code agent files |
+| JSON schemas parse | PASS | 2 schema files |
+| 8 workflows and 10 rules present | PASS | 8 workflows, 10 rules |
+| required project files present | PASS | README.md, LICENSE, SECURITY.md, CHANGELOG.md, llms.txt, package.json |
+| no credentials or private keys in the tree | PASS | regex scan for GitHub, npm and AWS tokens and private-key headers (tests excluded) |
+
+## What was NOT verified
+
+**Status:** NOT_RUN
+
+Listed so that absence of evidence is not mistaken for evidence.
+
+| Check | Status | Detail |
+| --- | --- | --- |
+| SQLGlot / full dialect parser adapter | NOT_RUN | Not implemented. The built-in parser covers a documented subset and does not certify any dialect. |
+| Live database metadata, freshness and data tests | NOT_RUN | Never attempted. No connections are opened and no rows are read. |
+| Native activation inside Cursor, Codex, Gemini CLI, Copilot, OpenCode | NOT_RUN | Skill files are copied and checked; native invocation by each host is NOT_TESTED. |
+| MCP Inspector / third-party MCP client validation | NOT_RUN | The MCP server is verified with a scripted JSON-RPC client only. |
+| Independent third-party security review or penetration test | NOT_RUN | None performed. This audit is a self-audit by the project. |
+| Signed provenance of this report | NOT_RUN | The SHA-256 seal detects edits; it does not prove who produced the report. |
+
+## Environment
+
+| Key | Value |
+| --- | --- |
+| node | v24.15.0 |
+| platform | win32/x64 |
+| os | Windows_NT 10.0.26300 |
+| cpu | Intel(R) Core(TM) Ultra 7 155U |
+| threads | 14 |
+| memoryGiB | 31.4 |
+| ci | no |
+
+## Reproduce
+
+```bash
+npx lineagesutra-ai audit --out audit-out
+```
+
+```bash
+npx lineagesutra-ai audit --root ./sql --out audit-out   # also audit your own SQL folder
+```
+
+```bash
+git clone https://github.com/shahvatsalofficial/lineagesutra-ai && cd lineagesutra-ai && npm test && npm run proof
+```
+
+## Honest limits
+
+- The gold corpus is small and was labelled by the project author; it detects regressions but is not an independent accuracy claim for your SQL.
+- Performance numbers come from a synthetic workload on the machine that ran the audit; they will differ on yours.
+- A PASS here never means your database, pipelines or data are safe to change.
+
+Integrity: SHA-256 `f46cbfc54128b844d34833cade0b56a19f25c82b38116f4f0712c8e549edb760` (tamper evidence, not a signature)

@@ -1,0 +1,8 @@
+flowchart LR
+  campaign_recipients["campaign_recipients"]
+  customers["customers"]
+  customers_public["customers_public"]
+  email_metrics["email_metrics"]
+  customers_public --> email_metrics
+  customers --> campaign_recipients
+  customers --> customers_public

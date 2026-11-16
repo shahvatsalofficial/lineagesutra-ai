@@ -1,0 +1,1 @@
+{"datasets":[{"name":"customers","requiredColumns":["id","email"]},{"name":"customers_public","requiredColumns":["id","email"]},{"name":"campaign_recipients","requiredColumns":["email"]}]}

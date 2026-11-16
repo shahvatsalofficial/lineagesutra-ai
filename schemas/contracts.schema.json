@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LineageSutra optional metadata contract",
+  "type": "object",
+  "required": [
+    "datasets"
+  ],
+  "properties": {
+    "datasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "requiredColumns"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "requiredColumns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

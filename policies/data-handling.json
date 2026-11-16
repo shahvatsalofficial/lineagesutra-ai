@@ -1,0 +1,26 @@
+{
+  "mode": "read-only",
+  "allowDatabaseConnections": false,
+  "allowRowData": false,
+  "allowNetwork": false,
+  "allowAutoMigrations": false,
+  "allowSymlinkTraversal": false,
+  "maxFiles": 500,
+  "maxSqlBytes": 2000000,
+  "humanApproval": [
+    "database queries",
+    "schema migrations",
+    "network calls",
+    "global plugin installs",
+    "subprocess execution",
+    "cloud publishing"
+  ],
+  "evidenceStatuses": [
+    "supported-subset",
+    "possible",
+    "unknown",
+    "not-run",
+    "blocked",
+    "verified"
+  ]
+}

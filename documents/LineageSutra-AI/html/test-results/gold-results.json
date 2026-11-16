@@ -1,0 +1,571 @@
+{
+  "cases": 54,
+  "passed": 54,
+  "truePositives": 148,
+  "falsePositives": 0,
+  "falseNegatives": 0,
+  "precision": 1,
+  "recall": 1,
+  "f1": 1,
+  "precisionCI95": [
+    0.9746999504747053,
+    1
+  ],
+  "recallCI95": [
+    0.9746999504747053,
+    1
+  ],
+  "results": [
+    {
+      "id": "direct-copy",
+      "tags": [
+        "basic"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "qualified-alias",
+      "tags": [
+        "basic"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "alias-without-as",
+      "tags": [
+        "basic"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "join-qualified",
+      "tags": [
+        "join"
+      ],
+      "pass": true,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "join-unqualified-resolved-by-schema",
+      "tags": [
+        "join"
+      ],
+      "pass": true,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "join-ambiguous-column",
+      "tags": [
+        "join",
+        "negative"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "join-using",
+      "tags": [
+        "join"
+      ],
+      "pass": true,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "self-join",
+      "tags": [
+        "join"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "expression-arithmetic",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "aggregate-group-by",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "case-expression",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "cast-forms",
+      "tags": [
+        "expr",
+        "postgres"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "window-function",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "nested-functions",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "extract-and-trunc",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "interval-literal",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "count-star",
+      "tags": [
+        "expr"
+      ],
+      "pass": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "distinct",
+      "tags": [
+        "basic"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "filter-order-limit",
+      "tags": [
+        "indirect"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "having-clause",
+      "tags": [
+        "indirect"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "cte-chain-propagates-filter",
+      "tags": [
+        "cte"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "subquery-in-from",
+      "tags": [
+        "subquery"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "scalar-subquery-correlated",
+      "tags": [
+        "subquery"
+      ],
+      "pass": true,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "in-subquery-filter",
+      "tags": [
+        "subquery",
+        "indirect"
+      ],
+      "pass": true,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "union-all",
+      "tags": [
+        "setop"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "union-column-count-mismatch",
+      "tags": [
+        "setop",
+        "negative"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "wildcard-known-schema",
+      "tags": [
+        "wildcard"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "wildcard-qualified-join",
+      "tags": [
+        "wildcard",
+        "join"
+      ],
+      "pass": true,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "wildcard-unknown-schema",
+      "tags": [
+        "wildcard",
+        "negative"
+      ],
+      "pass": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "wildcard-through-view",
+      "tags": [
+        "wildcard"
+      ],
+      "pass": true,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "wildcard-defined-later-in-file",
+      "tags": [
+        "wildcard"
+      ],
+      "pass": true,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "ctas",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "insert-select-column-list",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "insert-select-declared-schema",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "insert-values-no-lineage",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "view-column-list",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "materialized-view",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "or-replace-if-not-exists",
+      "tags": [
+        "ddl"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "schema-qualified-suffix-resolution",
+      "tags": [
+        "naming"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "quoted-identifiers-fold-to-lowercase",
+      "tags": [
+        "naming"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "tsql-bracket-identifiers",
+      "tags": [
+        "naming",
+        "tsql"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "backtick-identifiers",
+      "tags": [
+        "naming",
+        "mysql"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "unicode-identifiers",
+      "tags": [
+        "naming"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "comment-containing-fake-sql",
+      "tags": [
+        "adversarial"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "string-literal-containing-from",
+      "tags": [
+        "adversarial"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "dollar-quoted-body-ignored",
+      "tags": [
+        "adversarial",
+        "postgres"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "merge-unsupported",
+      "tags": [
+        "negative"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "dynamic-sql-unsupported",
+      "tags": [
+        "negative"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "jinja-template-unsupported",
+      "tags": [
+        "negative",
+        "dbt"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "recursive-cte-flagged",
+      "tags": [
+        "negative",
+        "cte"
+      ],
+      "pass": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "table-function-flagged",
+      "tags": [
+        "negative"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "standalone-select-flagged",
+      "tags": [
+        "negative"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "unclosed-ddl-flagged",
+      "tags": [
+        "negative"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "id": "view-cycle-flagged",
+      "tags": [
+        "negative"
+      ],
+      "pass": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "format": "lineagesutra.contract.v1",
+  "inputIntegrity": "1034fe6e71bbb108944fe04e0c332db161f976c8f8aa5ba408ac68157f123a0c",
+  "findings": [],
+  "notRun": [
+    {
+      "dataset": "customers",
+      "check": "owner",
+      "status": "not-run",
+      "reason": "No owner declared in the contract"
+    },
+    {
+      "dataset": "customers_public",
+      "check": "owner",
+      "status": "not-run",
+      "reason": "No owner declared in the contract"
+    },
+    {
+      "dataset": "campaign_recipients",
+      "check": "owner",
+      "status": "not-run",
+      "reason": "No owner declared in the contract"
+    }
+  ],
+  "verdict": "SUPPORTED_SUBSET_CHECK_PASSED",
+  "limitations": [
+    "A passing contract check is limited to extracted metadata; no database tests or freshness measurement were performed"
+  ],
+  "integrity": {
+    "algorithm": "sha256",
+    "hash": "df1c8273ae2ee5f575a1b3b61db0df604331aaeb0286d71a3cbe2e966d9b2292"
+  }
+}

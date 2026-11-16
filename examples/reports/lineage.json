@@ -1,0 +1,217 @@
+{
+  "format": "lineagesutra.scan.v1",
+  "tool": {
+    "name": "lineagesutra-ai",
+    "version": "0.2.0",
+    "parser": "lineagesutra-sql-subset/2"
+  },
+  "mode": "offline-source-analysis",
+  "rootLabel": "sql",
+  "summary": {
+    "sqlFiles": 4,
+    "datasets": 4,
+    "declaredDatasets": 4,
+    "externalDatasets": 0,
+    "dependencies": 7,
+    "tableEdges": 3,
+    "columnEdges": 4,
+    "indirectEdges": 0,
+    "warnings": 0,
+    "coverage": {
+      "supportedSubset": 4,
+      "partial": 0,
+      "unknown": 0
+    }
+  },
+  "sources": [
+    {
+      "path": "00_customers.sql",
+      "sha256": "8b0e5dea2b8c0ee7b29a095e63574cb838fb6670454b75e85846ddd1a9ebd1e4",
+      "bytes": 79,
+      "dialectHints": []
+    },
+    {
+      "path": "01_customers_public.sql",
+      "sha256": "383c0ad631cc473189f09066d2a9406b494424e5de90b73488f9fe296489c225",
+      "bytes": 65,
+      "dialectHints": []
+    },
+    {
+      "path": "02_email_metrics.sql",
+      "sha256": "dc2b57e3036316579c476715e68bd000343a2d10d7d69ca91e33cd3bcb330c23",
+      "bytes": 76,
+      "dialectHints": []
+    },
+    {
+      "path": "03_campaign_recipients.sql",
+      "sha256": "2c887223cb10975932bce54cba9d9689beade043f4131e1f2cbc393325418c57",
+      "bytes": 64,
+      "dialectHints": []
+    }
+  ],
+  "nodes": [
+    {
+      "id": "campaign_recipients",
+      "kind": "view",
+      "columns": [
+        "email"
+      ],
+      "source": {
+        "file": "03_campaign_recipients.sql",
+        "line": 1
+      },
+      "certainty": "supported-subset",
+      "sensitivityHints": [
+        "email"
+      ]
+    },
+    {
+      "id": "customers",
+      "kind": "table",
+      "columns": [
+        "id",
+        "email",
+        "created_at"
+      ],
+      "columnTypes": {
+        "id": "integer",
+        "email": "text",
+        "created_at": "timestamp"
+      },
+      "notNull": [],
+      "source": {
+        "file": "00_customers.sql",
+        "line": 1
+      },
+      "certainty": "supported-subset",
+      "sensitivityHints": [
+        "email"
+      ]
+    },
+    {
+      "id": "customers_public",
+      "kind": "view",
+      "columns": [
+        "id",
+        "email"
+      ],
+      "source": {
+        "file": "01_customers_public.sql",
+        "line": 1
+      },
+      "certainty": "supported-subset",
+      "sensitivityHints": [
+        "email"
+      ]
+    },
+    {
+      "id": "email_metrics",
+      "kind": "view",
+      "columns": [
+        "address"
+      ],
+      "source": {
+        "file": "02_email_metrics.sql",
+        "line": 1
+      },
+      "certainty": "supported-subset",
+      "sensitivityHints": [
+        "address"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "customers.email",
+      "to": "campaign_recipients.email",
+      "type": "column",
+      "kind": "direct",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "03_campaign_recipients.sql",
+        "line": 2,
+        "col": 8
+      }
+    },
+    {
+      "from": "customers.email",
+      "to": "customers_public.email",
+      "type": "column",
+      "kind": "direct",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "01_customers_public.sql",
+        "line": 2,
+        "col": 12
+      }
+    },
+    {
+      "from": "customers.id",
+      "to": "customers_public.id",
+      "type": "column",
+      "kind": "direct",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "01_customers_public.sql",
+        "line": 2,
+        "col": 8
+      }
+    },
+    {
+      "from": "customers_public.email",
+      "to": "email_metrics.address",
+      "type": "column",
+      "kind": "direct",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "02_email_metrics.sql",
+        "line": 2,
+        "col": 8
+      }
+    },
+    {
+      "from": "customers_public",
+      "to": "email_metrics",
+      "type": "table",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "02_email_metrics.sql",
+        "line": 2,
+        "col": 30
+      }
+    },
+    {
+      "from": "customers",
+      "to": "campaign_recipients",
+      "type": "table",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "03_campaign_recipients.sql",
+        "line": 2,
+        "col": 19
+      }
+    },
+    {
+      "from": "customers",
+      "to": "customers_public",
+      "type": "table",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "01_customers_public.sql",
+        "line": 2,
+        "col": 23
+      }
+    }
+  ],
+  "warnings": [],
+  "limits": [
+    "Supported subset: CREATE TABLE/VIEW [AS SELECT], CTAS, INSERT ... SELECT, CTEs, subqueries, JOINs, set operations, expressions, window functions and wildcard expansion where schemas are declared in the scanned sources. This does not certify any SQL dialect.",
+    "Edges are static observations of SQL text. Column edges are marked direct (plain copy) or derived (expression); WHERE/JOIN/GROUP/HAVING/ORDER dependencies are marked indirect.",
+    "Dynamic SQL, dbt/Jinja templates, stored procedures, MERGE/UPDATE, table functions, PIVOT and recursive CTEs are reported as warnings, never as confident edges.",
+    "No database connection, row data, query execution, freshness measurement or production verification is performed. The SHA-256 seal is tamper evidence, not a signature."
+  ],
+  "integrity": {
+    "algorithm": "sha256",
+    "hash": "1034fe6e71bbb108944fe04e0c332db161f976c8f8aa5ba408ac68157f123a0c"
+  }
+}

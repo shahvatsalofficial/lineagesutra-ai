@@ -1,0 +1,5 @@
+---
+description: LineageSutra AI safety and evidence-first boundaries
+alwaysApply: false
+---
+Read AGENTS.md and docs/STATUS.md. Do not run production SQL. Unknown dialects are unverified. Human approval required for edits, network, and tools. Maintainer: Vatsal Shah.

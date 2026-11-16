@@ -1,0 +1,12 @@
+{
+  "scope": "file-copy-only-not-proof-of-native-activation",
+  "hosts": {
+    "claude": ".claude/skills",
+    "cursor": ".cursor/skills",
+    "codex": ".agents/skills",
+    "gemini": ".gemini/skills",
+    "copilot": ".github/skills",
+    "opencode": ".opencode/skills"
+  },
+  "nativeActivationTests": "NOT_RUN"
+}

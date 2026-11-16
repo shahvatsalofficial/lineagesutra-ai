@@ -1,0 +1,16 @@
+$ lineagesutra doctor
+(exit 0)
+
+{
+  "name": "LineageSutra AI",
+  "version": "0.2.0",
+  "node": "v24.15.0",
+  "nodeSupported": true,
+  "platform": "win32",
+  "arch": "x64",
+  "cpuCount": 14,
+  "offline": true,
+  "externalDatabaseConnections": false,
+  "networkCallsInCore": false,
+  "bundledSkills": 25
+}

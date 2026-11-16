@@ -1,0 +1,155 @@
+{
+  "product": "LineageSutra AI",
+  "creator": "Vatsal Shah",
+  "count": 20,
+  "roles": [
+    {
+      "id": "lineagesutra-prime",
+      "name": "LineageSutra Prime",
+      "responsibility": "Coordinate scanning, source evidence, consent, reconciliation, and final human-reviewed release assessment.",
+      "skill": "skills/lineagesutra-prime/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-prime.md"
+    },
+    {
+      "id": "lineagesutra-schema-detective",
+      "name": "LineageSutra Schema Detective",
+      "responsibility": "Inspect CREATE TABLE declarations, fields, source locations and ambiguity; exclude row-level data.",
+      "skill": "skills/lineagesutra-schema-detective/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-schema-detective.md"
+    },
+    {
+      "id": "lineagesutra-sql-cartographer",
+      "name": "LineageSutra Sql Cartographer",
+      "responsibility": "Map table/view dependencies from a bounded explicit SQL subset; do not parse unknown dialects as known.",
+      "skill": "skills/lineagesutra-sql-cartographer/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-sql-cartographer.md"
+    },
+    {
+      "id": "lineagesutra-column-trace",
+      "name": "LineageSutra Column Trace",
+      "responsibility": "Resolve only qualified or unambiguous column projections and flag expressions, wildcards and dynamic SQL.",
+      "skill": "skills/lineagesutra-column-trace/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-column-trace.md"
+    },
+    {
+      "id": "lineagesutra-pipeline-mapper",
+      "name": "LineageSutra Pipeline Mapper",
+      "responsibility": "Study pipeline files, jobs, source tables and downstream consumers through approved metadata adapters.",
+      "skill": "skills/lineagesutra-pipeline-mapper/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-pipeline-mapper.md"
+    },
+    {
+      "id": "lineagesutra-dbt-navigator",
+      "name": "LineageSutra Dbt Navigator",
+      "responsibility": "Plan schema-version-aware dbt manifest ingest, refs and sources; do not assume manifests exist.",
+      "skill": "skills/lineagesutra-dbt-navigator/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-dbt-navigator.md"
+    },
+    {
+      "id": "lineagesutra-openlineage-bridge",
+      "name": "LineageSutra Openlineage Bridge",
+      "responsibility": "Translate verified graph nodes/edges to approved OpenLineage formats and metadata facets.",
+      "skill": "skills/lineagesutra-openlineage-bridge/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-openlineage-bridge.md"
+    },
+    {
+      "id": "lineagesutra-contract-guardian",
+      "name": "LineageSutra Contract Guardian",
+      "responsibility": "Compare declared datasets/columns and report absent or unknown schema evidence without querying data.",
+      "skill": "skills/lineagesutra-contract-guardian/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-contract-guardian.md"
+    },
+    {
+      "id": "lineagesutra-freshness-witness",
+      "name": "LineageSutra Freshness Witness",
+      "responsibility": "Separate declared schedules from measured timestamp freshness; never claim data is fresh without observations.",
+      "skill": "skills/lineagesutra-freshness-witness/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-freshness-witness.md"
+    },
+    {
+      "id": "lineagesutra-pii-boundary",
+      "name": "LineageSutra Pii Boundary",
+      "responsibility": "Handle PII classifications as metadata, redact secrets and forbid row-level personal data extraction.",
+      "skill": "skills/lineagesutra-pii-boundary/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-pii-boundary.md"
+    },
+    {
+      "id": "lineagesutra-blast-radius",
+      "name": "LineageSutra Blast Radius",
+      "responsibility": "Find transitive upstream-to-downstream paths and separate confirmed field flow from possible table-level risk.",
+      "skill": "skills/lineagesutra-blast-radius/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-blast-radius.md"
+    },
+    {
+      "id": "lineagesutra-dependency-resolver",
+      "name": "LineageSutra Dependency Resolver",
+      "responsibility": "Manage dialect/schema/table aliases and collisions with stable IDs and unknown markers.",
+      "skill": "skills/lineagesutra-dependency-resolver/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-dependency-resolver.md"
+    },
+    {
+      "id": "lineagesutra-query-ambiguity",
+      "name": "LineageSutra Query Ambiguity",
+      "responsibility": "Detect CTEs, wildcard expansions, dynamic SQL, filters, joins and functions requiring a full AST parser.",
+      "skill": "skills/lineagesutra-query-ambiguity/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-query-ambiguity.md"
+    },
+    {
+      "id": "lineagesutra-dialect-scout",
+      "name": "LineageSutra Dialect Scout",
+      "responsibility": "Declare parser coverage by dialect and version, test exact supported constructs, route others to adapters.",
+      "skill": "skills/lineagesutra-dialect-scout/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-dialect-scout.md"
+    },
+    {
+      "id": "lineagesutra-graph-curator",
+      "name": "LineageSutra Graph Curator",
+      "responsibility": "Keep canonical nodes, edge confidence, source hashes, cycles and deterministic exports.",
+      "skill": "skills/lineagesutra-graph-curator/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-graph-curator.md"
+    },
+    {
+      "id": "lineagesutra-impact-analyst",
+      "name": "LineageSutra Impact Analyst",
+      "responsibility": "Assess proposed rename/drop/type changes, affected field and table consumers and evidence uncertainty.",
+      "skill": "skills/lineagesutra-impact-analyst/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-impact-analyst.md"
+    },
+    {
+      "id": "lineagesutra-test-evidence",
+      "name": "LineageSutra Test Evidence",
+      "responsibility": "Maintain fixtures, golden outputs, real run logs, negative tests and the status of unexecuted checks.",
+      "skill": "skills/lineagesutra-test-evidence/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-test-evidence.md"
+    },
+    {
+      "id": "lineagesutra-ide-bridge",
+      "name": "LineageSutra Ide Bridge",
+      "responsibility": "Publish portable SKILL.md and optional native adapters with individually verified host support.",
+      "skill": "skills/lineagesutra-ide-bridge/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-ide-bridge.md"
+    },
+    {
+      "id": "lineagesutra-security-sentinel",
+      "name": "LineageSutra Security Sentinel",
+      "responsibility": "Prevent symlink traversal, malicious SQL instruction following, uncontrolled DB access, code execution or exfiltration.",
+      "skill": "skills/lineagesutra-security-sentinel/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-security-sentinel.md"
+    },
+    {
+      "id": "lineagesutra-release-auditor",
+      "name": "LineageSutra Release Auditor",
+      "responsibility": "Verify claims against CI artifacts, data-handling consent, reproducibility and documented product limitations.",
+      "skill": "skills/lineagesutra-release-auditor/SKILL.md",
+      "claudeSubagent": ".claude/agents/lineagesutra-release-auditor.md"
+    }
+  ],
+  "additionalCapabilities": [
+    "lineagesutra-schema-inventory",
+    "lineagesutra-sql-lineage",
+    "lineagesutra-dataset-contract",
+    "lineagesutra-freshness-rule",
+    "lineagesutra-downstream-impact"
+  ],
+  "orchestration": "policy-gated, sequential fallback; native concurrent subagents not tested"
+}

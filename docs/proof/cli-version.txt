@@ -1,0 +1,4 @@
+$ lineagesutra --version
+(exit 0)
+
+lineagesutra-ai 0.2.0

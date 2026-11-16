@@ -1,0 +1,952 @@
+TAP version 13
+# Subtest: gold corpus: every hand-labelled case matches exactly
+ok 1 - gold corpus: every hand-labelled case matches exactly
+  ---
+  duration_ms: 26.1376
+  type: 'test'
+  ...
+# Subtest: tokenizer drops comments and hides string contents
+ok 2 - tokenizer drops comments and hides string contents
+  ---
+  duration_ms: 0.2713
+  type: 'test'
+  ...
+# Subtest: tokenizer: bracket identifier vs array subscript
+ok 3 - tokenizer: bracket identifier vs array subscript
+  ---
+  duration_ms: 0.4186
+  type: 'test'
+  ...
+# Subtest: tokenizer: jinja markers become tmpl tokens and set the flag
+ok 4 - tokenizer: jinja markers become tmpl tokens and set the flag
+  ---
+  duration_ms: 0.1115
+  type: 'test'
+  ...
+# Subtest: tokenizer: token limit stops hostile input
+ok 5 - tokenizer: token limit stops hostile input
+  ---
+  duration_ms: 120.3693
+  type: 'test'
+  ...
+# Subtest: parser reports line and column of edges
+ok 6 - parser reports line and column of edges
+  ---
+  duration_ms: 0.4724
+  type: 'test'
+  ...
+# Subtest: parser captures DDL types and NOT NULL
+ok 7 - parser captures DDL types and NOT NULL
+  ---
+  duration_ms: 0.3372
+  type: 'test'
+  ...
+# Subtest: parser never throws on garbage; it warns
+ok 8 - parser never throws on garbage; it warns
+  ---
+  duration_ms: 0.3949
+  type: 'test'
+  ...
+# Subtest: duplicate declaration in one file warns
+ok 9 - duplicate declaration in one file warns
+  ---
+  duration_ms: 0.252
+  type: 'test'
+  ...
+# Subtest: cycle between views is reported
+ok 10 - cycle between views is reported
+  ---
+  duration_ms: 0.5722
+  type: 'test'
+  ...
+# Subtest: undeclared sources become explicit external nodes
+ok 11 - undeclared sources become explicit external nodes
+  ---
+  duration_ms: 0.305
+  type: 'test'
+  ...
+# Subtest: sensitivity hints come from column names only and are labelled hints
+ok 12 - sensitivity hints come from column names only and are labelled hints
+  ---
+  duration_ms: 0.2545
+  type: 'test'
+  ...
+# Subtest: scan seal is independent of file order
+ok 13 - scan seal is independent of file order
+  ---
+  duration_ms: 0.4263
+  type: 'test'
+  ...
+# Subtest: cross-file wildcard resolves through producers regardless of path order
+ok 14 - cross-file wildcard resolves through producers regardless of path order
+  ---
+  duration_ms: 0.4149
+  type: 'test'
+  ...
+# Subtest: impact: confirmed path carries proof with source lines
+ok 15 - impact: confirmed path carries proof with source lines
+  ---
+  duration_ms: 2.0095
+  type: 'test'
+  ...
+# Subtest: impact: change type drives checklist wording
+ok 16 - impact: change type drives checklist wording
+  ---
+  duration_ms: 0.9215
+  type: 'test'
+  ...
+# Subtest: impact: unknown table is reported, not silently empty
+ok 17 - impact: unknown table is reported, not silently empty
+  ---
+  duration_ms: 0.236
+  type: 'test'
+  ...
+# Subtest: impact: indirect filter use is possible, not confirmed
+ok 18 - impact: indirect filter use is possible, not confirmed
+  ---
+  duration_ms: 0.6891
+  type: 'test'
+  ...
+# Subtest: impact: qualified table suffix resolves to the declared dataset
+ok 19 - impact: qualified table suffix resolves to the declared dataset
+  ---
+  duration_ms: 0.4082
+  type: 'test'
+  ...
+# Subtest: impact: sensitive-name hints are surfaced
+ok 20 - impact: sensitive-name hints are surfaced
+  ---
+  duration_ms: 0.3204
+  type: 'test'
+  ...
+# Subtest: impact on a cyclic graph terminates
+ok 21 - impact on a cyclic graph terminates
+  ---
+  duration_ms: 0.5091
+  type: 'test'
+  ...
+# Subtest: impact: table mode lists downstream datasets with hop counts
+ok 22 - impact: table mode lists downstream datasets with hop counts
+  ---
+  duration_ms: 0.2634
+  type: 'test'
+  ...
+# Subtest: impact: seal is valid
+ok 23 - impact: seal is valid
+  ---
+  duration_ms: 0.2772
+  type: 'test'
+  ...
+# Subtest: upstream: traces a column back to its origin
+ok 24 - upstream: traces a column back to its origin
+  ---
+  duration_ms: 0.5082
+  type: 'test'
+  ...
+# Subtest: upstream: unknown target flagged
+ok 25 - upstream: unknown target flagged
+  ---
+  duration_ms: 0.1707
+  type: 'test'
+  ...
+# Subtest: compare (DriftRadar): renamed column breaks all consumers
+ok 26 - compare (DriftRadar): renamed column breaks all consumers
+  ---
+  duration_ms: 0.5985
+  type: 'test'
+  ...
+# Subtest: compare: identical graphs are clean
+ok 27 - compare: identical graphs are clean
+  ---
+  duration_ms: 0.2436
+  type: 'test'
+  ...
+# Subtest: compare: removed dataset with consumers is breaking
+ok 28 - compare: removed dataset with consumers is breaking
+  ---
+  duration_ms: 0.5276
+  type: 'test'
+  ...
+# Subtest: contract: type mismatch against DDL
+ok 29 - contract: type mismatch against DDL
+  ---
+  duration_ms: 0.5741
+  type: 'test'
+  ...
+# Subtest: contract: nullability requirement not met
+ok 30 - contract: nullability requirement not met
+  ---
+  duration_ms: 0.221
+  type: 'test'
+  ...
+# Subtest: contract: forbidden column present
+ok 31 - contract: forbidden column present
+  ---
+  duration_ms: 0.2109
+  type: 'test'
+  ...
+# Subtest: contract: freshness SLA and missing owner are NOT_RUN, never PASS
+ok 32 - contract: freshness SLA and missing owner are NOT_RUN, never PASS
+  ---
+  duration_ms: 0.2199
+  type: 'test'
+  ...
+# Subtest: contract: external dataset is unverified
+ok 33 - contract: external dataset is unverified
+  ---
+  duration_ms: 0.2605
+  type: 'test'
+  ...
+# Subtest: seal: unicode, nested and ordering stability
+ok 34 - seal: unicode, nested and ordering stability
+  ---
+  duration_ms: 0.2307
+  type: 'test'
+  ...
+# Subtest: property: adding edges never shrinks the confirmed impact set (200 random graphs)
+ok 35 - property: adding edges never shrinks the confirmed impact set (200 random graphs)
+  ---
+  duration_ms: 64.542
+  type: 'test'
+  ...
+# Subtest: fuzz: 1500 seeded token streams never throw a non-Error and never hang
+ok 36 - fuzz: 1500 seeded token streams never throw a non-Error and never hang
+  ---
+  duration_ms: 26.6468
+  type: 'test'
+  ...
+# Subtest: migration fixture exists
+ok 37 - migration fixture exists
+  ---
+  duration_ms: 0.4861
+  type: 'test'
+  ...
+# Subtest: cli --version prints the package version
+ok 38 - cli --version prints the package version
+  ---
+  duration_ms: 747.8177
+  type: 'test'
+  ...
+# Subtest: cli infers format from the --out extension
+ok 39 - cli infers format from the --out extension
+  ---
+  duration_ms: 1514.6016
+  type: 'test'
+  ...
+# Subtest: cli accepts --key=value and rejects options missing a value
+ok 40 - cli accepts --key=value and rejects options missing a value
+  ---
+  duration_ms: 1.2504
+  type: 'test'
+  ...
+# Subtest: cli impact --fail-on confirmed exits 3 when impacts exist, 0 otherwise
+ok 41 - cli impact --fail-on confirmed exits 3 when impacts exist, 0 otherwise
+  ---
+  duration_ms: 3099.1758
+  type: 'test'
+  ...
+# Subtest: cli scan --strict exits 3 when the parser had to warn
+ok 42 - cli scan --strict exits 3 when the parser had to warn
+  ---
+  duration_ms: 1371.6126
+  type: 'test'
+  ...
+# Subtest: cli compare --fail-on-breaking detects the renamed column
+ok 43 - cli compare --fail-on-breaking detects the renamed column
+  ---
+  duration_ms: 2183.0111
+  type: 'test'
+  ...
+# Subtest: cli upstream writes a sealed trace
+ok 44 - cli upstream writes a sealed trace
+  ---
+  duration_ms: 1236.5419
+  type: 'test'
+  ...
+# Subtest: cli verify rejects a non-JSON file
+ok 45 - cli verify rejects a non-JSON file
+  ---
+  duration_ms: 715.0925
+  type: 'test'
+  ...
+# Subtest: cli audit writes json, md and html, refuses overwrite without --force
+ok 46 - cli audit writes json, md and html, refuses overwrite without --force
+  ---
+  duration_ms: 14983.1195
+  type: 'test'
+  ...
+# Subtest: cli audit --root audits a user repository
+ok 47 - cli audit --root audits a user repository
+  ---
+  duration_ms: 5029.8637
+  type: 'test'
+  ...
+# Subtest: main() works in-process and returns exit codes
+ok 48 - main() works in-process and returns exit codes
+  ---
+  duration_ms: 0.5689
+  type: 'test'
+  ...
+# Subtest: cli dbt imports a manifest and records the schema version
+ok 49 - cli dbt imports a manifest and records the schema version
+  ---
+  duration_ms: 719.1438
+  type: 'test'
+  ...
+# Subtest: cli bin runs through a symlink (npm bin shim behaviour)
+ok 50 - cli bin runs through a symlink (npm bin shim behaviour) # SKIP
+  ---
+  duration_ms: 0.2323
+  type: 'test'
+  ...
+# Subtest: markdown includes dataset name
+ok 51 - markdown includes dataset name
+  ---
+  duration_ms: 2.7849
+  type: 'test'
+  ...
+# Subtest: markdown report labels supported subset
+ok 52 - markdown report labels supported subset
+  ---
+  duration_ms: 0.3074
+  type: 'test'
+  ...
+# Subtest: impact report has no fabricated claim
+ok 53 - impact report has no fabricated claim
+  ---
+  duration_ms: 2.5256
+  type: 'test'
+  ...
+# Subtest: html escapes source-controlled content
+ok 54 - html escapes source-controlled content
+  ---
+  duration_ms: 1.6068
+  type: 'test'
+  ...
+# Subtest: mermaid graph includes valid dependency
+ok 55 - mermaid graph includes valid dependency
+  ---
+  duration_ms: 0.2587
+  type: 'test'
+  ...
+# Subtest: save JSON creates valid file
+ok 56 - save JSON creates valid file
+  ---
+  duration_ms: 12.4677
+  type: 'test'
+  ...
+# Subtest: save Markdown works
+ok 57 - save Markdown works
+  ---
+  duration_ms: 13.6263
+  type: 'test'
+  ...
+# Subtest: save HTML works
+ok 58 - save HTML works
+  ---
+  duration_ms: 20.7295
+  type: 'test'
+  ...
+# Subtest: save refuses tampered
+ok 59 - save refuses tampered
+  ---
+  duration_ms: 4.5807
+  type: 'test'
+  ...
+# Subtest: cli doctor offline status
+ok 60 - cli doctor offline status
+  ---
+  duration_ms: 737.4786
+  type: 'test'
+  ...
+# Subtest: cli help readable
+ok 61 - cli help readable
+  ---
+  duration_ms: 710.2379
+  type: 'test'
+  ...
+# Subtest: cli scan writes report
+ok 62 - cli scan writes report
+  ---
+  duration_ms: 860.7183
+  type: 'test'
+  ...
+# Subtest: cli impact writes three verified impacts
+ok 63 - cli impact writes three verified impacts
+  ---
+  duration_ms: 806.5145
+  type: 'test'
+  ...
+# Subtest: cli contract writes report
+ok 64 - cli contract writes report
+  ---
+  duration_ms: 798.7398
+  type: 'test'
+  ...
+# Subtest: cli verify rejects tamper
+ok 65 - cli verify rejects tamper
+  ---
+  duration_ms: 760.7462
+  type: 'test'
+  ...
+# Subtest: cli verify accepts intact graph
+ok 66 - cli verify accepts intact graph
+  ---
+  duration_ms: 720.4696
+  type: 'test'
+  ...
+# Subtest: cli rejects unknown command
+ok 67 - cli rejects unknown command
+  ---
+  duration_ms: 714.2614
+  type: 'test'
+  ...
+# Subtest: cli refuses no scan root
+ok 68 - cli refuses no scan root
+  ---
+  duration_ms: 738.7343
+  type: 'test'
+  ...
+# Subtest: cli refuses arbitrary format
+ok 69 - cli refuses arbitrary format
+  ---
+  duration_ms: 662.1579
+  type: 'test'
+  ...
+# Subtest: installer copies skills project-locally: claude
+ok 70 - installer copies skills project-locally: claude
+  ---
+  duration_ms: 348.4174
+  type: 'test'
+  ...
+# Subtest: installer copies skills project-locally: cursor
+ok 71 - installer copies skills project-locally: cursor
+  ---
+  duration_ms: 248.9365
+  type: 'test'
+  ...
+# Subtest: installer copies skills project-locally: codex
+ok 72 - installer copies skills project-locally: codex
+  ---
+  duration_ms: 343.8648
+  type: 'test'
+  ...
+# Subtest: installer copies skills project-locally: gemini
+ok 73 - installer copies skills project-locally: gemini
+  ---
+  duration_ms: 299.4951
+  type: 'test'
+  ...
+# Subtest: installer copies skills project-locally: copilot
+ok 74 - installer copies skills project-locally: copilot
+  ---
+  duration_ms: 266.7504
+  type: 'test'
+  ...
+# Subtest: installer copies skills project-locally: opencode
+ok 75 - installer copies skills project-locally: opencode
+  ---
+  duration_ms: 195.4143
+  type: 'test'
+  ...
+# Subtest: installer rejects unsupported IDE
+ok 76 - installer rejects unsupported IDE
+  ---
+  duration_ms: 1.1275
+  type: 'test'
+  ...
+# Subtest: installer rejects overwrites
+ok 77 - installer rejects overwrites
+  ---
+  duration_ms: 210.9059
+  type: 'test'
+  ...
+# Subtest: installer rejects symlink destination
+ok 78 - installer rejects symlink destination # SKIP
+  ---
+  duration_ms: 0.1225
+  type: 'test'
+  ...
+# Subtest: server requires token
+ok 79 - server requires token
+  ---
+  duration_ms: 0.3558
+  type: 'test'
+  ...
+# Subtest: server rejects invalid port
+ok 80 - server rejects invalid port
+  ---
+  duration_ms: 0.155
+  type: 'test'
+  ...
+# Subtest: HTTP requires bearer token and restricts verbs
+ok 81 - HTTP requires bearer token and restricts verbs
+  ---
+  duration_ms: 74.0107
+  type: 'test'
+  ...
+# Subtest: server detects report tampering
+ok 82 - server detects report tampering
+  ---
+  duration_ms: 29.5161
+  type: 'test'
+  ...
+# Subtest: graph format correct
+ok 83 - graph format correct
+  ---
+  duration_ms: 1.6809
+  type: 'test'
+  ...
+# Subtest: scan finds 4 SQL files
+ok 84 - scan finds 4 SQL files
+  ---
+  duration_ms: 0.1521
+  type: 'test'
+  ...
+# Subtest: scan identifies datasets
+ok 85 - scan identifies datasets
+  ---
+  duration_ms: 0.6756
+  type: 'test'
+  ...
+# Subtest: table columns extracted
+ok 86 - table columns extracted
+  ---
+  duration_ms: 0.1501
+  type: 'test'
+  ...
+# Subtest: view columns extracted
+ok 87 - view columns extracted
+  ---
+  duration_ms: 0.1311
+  type: 'test'
+  ...
+# Subtest: view to table edges extracted
+ok 88 - view to table edges extracted
+  ---
+  duration_ms: 0.135
+  type: 'test'
+  ...
+# Subtest: column-level edges extracted
+ok 89 - column-level edges extracted
+  ---
+  duration_ms: 0.1121
+  type: 'test'
+  ...
+# Subtest: join supported as dataset deps
+ok 90 - join supported as dataset deps
+  ---
+  duration_ms: 0.7138
+  type: 'test'
+  ...
+# Subtest: alias-qualified column supported
+ok 91 - alias-qualified column supported
+  ---
+  duration_ms: 0.3114
+  type: 'test'
+  ...
+# Subtest: ambiguous unqualified join column unresolved
+ok 92 - ambiguous unqualified join column unresolved
+  ---
+  duration_ms: 0.3712
+  type: 'test'
+  ...
+# Subtest: function expression is a derived (not direct) edge
+ok 93 - function expression is a derived (not direct) edge
+  ---
+  duration_ms: 0.1971
+  type: 'test'
+  ...
+# Subtest: wildcard unresolved
+ok 94 - wildcard unresolved
+  ---
+  duration_ms: 0.1453
+  type: 'test'
+  ...
+# Subtest: CTE over undeclared wildcard stays unknown and visible
+ok 95 - CTE over undeclared wildcard stays unknown and visible
+  ---
+  duration_ms: 0.3397
+  type: 'test'
+  ...
+# Subtest: UNION is supported: both branches feed the output column
+ok 96 - UNION is supported: both branches feed the output column
+  ---
+  duration_ms: 0.4791
+  type: 'test'
+  ...
+# Subtest: SELECT DISTINCT is supported
+ok 97 - SELECT DISTINCT is supported
+  ---
+  duration_ms: 0.1334
+  type: 'test'
+  ...
+# Subtest: templated SQL flagged
+ok 98 - templated SQL flagged
+  ---
+  duration_ms: 0.094
+  type: 'test'
+  ...
+# Subtest: SQL comments and strings sanitized
+ok 99 - SQL comments and strings sanitized
+  ---
+  duration_ms: 0.142
+  type: 'test'
+  ...
+# Subtest: escaped quoted string sanitizes correctly
+ok 100 - escaped quoted string sanitizes correctly
+  ---
+  duration_ms: 0.0606
+  type: 'test'
+  ...
+# Subtest: strips double quote/backtick in identifiers
+ok 101 - strips double quote/backtick in identifiers
+  ---
+  duration_ms: 0.1328
+  type: 'test'
+  ...
+# Subtest: DDL nested numeric type parsed
+ok 102 - DDL nested numeric type parsed
+  ---
+  duration_ms: 0.2335
+  type: 'test'
+  ...
+# Subtest: DDL primary key constraint ignored
+ok 103 - DDL primary key constraint ignored
+  ---
+  duration_ms: 0.1116
+  type: 'test'
+  ...
+# Subtest: invalid DDL unclosed warning
+ok 104 - invalid DDL unclosed warning
+  ---
+  duration_ms: 0.0891
+  type: 'test'
+  ...
+# Subtest: no view in plain SELECT tagged unsupported
+ok 105 - no view in plain SELECT tagged unsupported
+  ---
+  duration_ms: 0.0719
+  type: 'test'
+  ...
+# Subtest: reject excessive SQL size
+ok 106 - reject excessive SQL size
+  ---
+  duration_ms: 1.9724
+  type: 'test'
+  ...
+# Subtest: metadata source hash stable
+ok 107 - metadata source hash stable
+  ---
+  duration_ms: 0.0599
+  type: 'test'
+  ...
+# Subtest: graph sealed and verifiable
+ok 108 - graph sealed and verifiable
+  ---
+  duration_ms: 0.3589
+  type: 'test'
+  ...
+# Subtest: mutated report fails verify
+ok 109 - mutated report fails verify
+  ---
+  duration_ms: 0.4784
+  type: 'test'
+  ...
+# Subtest: hash canonicalization ignores object key order
+ok 110 - hash canonicalization ignores object key order
+  ---
+  duration_ms: 0.1697
+  type: 'test'
+  ...
+# Subtest: column impact includes chain
+ok 111 - column impact includes chain
+  ---
+  duration_ms: 3.7012
+  type: 'test'
+  ...
+# Subtest: column impact includes direct independent consumer
+ok 112 - column impact includes direct independent consumer
+  ---
+  duration_ms: 0.9173
+  type: 'test'
+  ...
+# Subtest: column impact excludes unrelated id
+ok 113 - column impact excludes unrelated id
+  ---
+  duration_ms: 0.449
+  type: 'test'
+  ...
+# Subtest: table impact contains transitive deps
+ok 114 - table impact contains transitive deps
+  ---
+  duration_ms: 0.2731
+  type: 'test'
+  ...
+# Subtest: column impact marks human review
+ok 115 - column impact marks human review
+  ---
+  duration_ms: 0.3076
+  type: 'test'
+  ...
+# Subtest: invalid impact table rejected
+ok 116 - invalid impact table rejected
+  ---
+  duration_ms: 0.2434
+  type: 'test'
+  ...
+# Subtest: invalid impact field rejected
+ok 117 - invalid impact field rejected
+  ---
+  duration_ms: 0.1737
+  type: 'test'
+  ...
+# Subtest: impact rejects tampered graph
+ok 118 - impact rejects tampered graph
+  ---
+  duration_ms: 0.3369
+  type: 'test'
+  ...
+# Subtest: impact on nonexisting column yields possible dependent tables
+ok 119 - impact on nonexisting column yields possible dependent tables
+  ---
+  duration_ms: 0.3709
+  type: 'test'
+  ...
+# Subtest: contract validates known columns
+ok 120 - contract validates known columns
+  ---
+  duration_ms: 0.5486
+  type: 'test'
+  ...
+# Subtest: contract reports unknown field
+ok 121 - contract reports unknown field
+  ---
+  duration_ms: 0.2952
+  type: 'test'
+  ...
+# Subtest: contract reports missing table
+ok 122 - contract reports missing table
+  ---
+  duration_ms: 0.2158
+  type: 'test'
+  ...
+# Subtest: contract rejects invalid array
+ok 123 - contract rejects invalid array
+  ---
+  duration_ms: 0.1667
+  type: 'test'
+  ...
+# Subtest: contract rejects malformed dataset
+ok 124 - contract rejects malformed dataset
+  ---
+  duration_ms: 0.2198
+  type: 'test'
+  ...
+# Subtest: contract report is sealed
+ok 125 - contract report is sealed
+  ---
+  duration_ms: 0.2236
+  type: 'test'
+  ...
+# Subtest: compare unchanged scan has empty delta
+ok 126 - compare unchanged scan has empty delta
+  ---
+  duration_ms: 4.7419
+  type: 'test'
+  ...
+# Subtest: compare detects added dependency
+ok 127 - compare detects added dependency
+  ---
+  duration_ms: 1.2172
+  type: 'test'
+  ...
+# Subtest: compare rejects invalid inputs
+ok 128 - compare rejects invalid inputs
+  ---
+  duration_ms: 0.1373
+  type: 'test'
+  ...
+# Subtest: scan deterministic
+ok 129 - scan deterministic
+  ---
+  duration_ms: 7.2342
+  type: 'test'
+  ...
+# Subtest: scan single file from synthetic temp dir
+ok 130 - scan single file from synthetic temp dir
+  ---
+  duration_ms: 22.5937
+  type: 'test'
+  ...
+# Subtest: scan ignores ignored node_modules
+ok 131 - scan ignores ignored node_modules
+  ---
+  duration_ms: 8.9817
+  type: 'test'
+  ...
+# Subtest: scan ignores symlinked input file
+ok 132 - scan ignores symlinked input file # SKIP
+  ---
+  duration_ms: 0.1499
+  type: 'test'
+  ...
+# Subtest: scan ignores symlinked directory
+ok 133 - scan ignores symlinked directory # SKIP
+  ---
+  duration_ms: 0.1185
+  type: 'test'
+  ...
+# Subtest: assertInside blocks outside file
+ok 134 - assertInside blocks outside file
+  ---
+  duration_ms: 2.8547
+  type: 'test'
+  ...
+# Subtest: file cap rejects overflow
+ok 135 - file cap rejects overflow
+  ---
+  duration_ms: 0.5968
+  type: 'test'
+  ...
+# Subtest: file cap rejects invalid
+ok 136 - file cap rejects invalid
+  ---
+  duration_ms: 0.1086
+  type: 'test'
+  ...
+# Subtest: file byte cap rejects oversized
+ok 137 - file byte cap rejects oversized
+  ---
+  duration_ms: 0.4499
+  type: 'test'
+  ...
+# Subtest: duplicate names become warnings
+ok 138 - duplicate names become warnings
+  ---
+  duration_ms: 29.9848
+  type: 'test'
+  ...
+# Subtest: dbt manifest import seals metadata
+ok 139 - dbt manifest import seals metadata
+  ---
+  duration_ms: 1.3226
+  type: 'test'
+  ...
+# Subtest: dbt manifest import extracts source and model nodes
+ok 140 - dbt manifest import extracts source and model nodes
+  ---
+  duration_ms: 0.4483
+  type: 'test'
+  ...
+# Subtest: dbt manifest imports declared dataset edges
+ok 141 - dbt manifest imports declared dataset edges
+  ---
+  duration_ms: 0.2729
+  type: 'test'
+  ...
+# Subtest: dbt import does not fabricate field edges
+ok 142 - dbt import does not fabricate field edges
+  ---
+  duration_ms: 0.3609
+  type: 'test'
+  ...
+# Subtest: dbt declared columns not treated as proven flow
+ok 143 - dbt declared columns not treated as proven flow
+  ---
+  duration_ms: 0.4426
+  type: 'test'
+  ...
+# Subtest: dbt missing dependency yields explicit warning
+ok 144 - dbt missing dependency yields explicit warning
+  ---
+  duration_ms: 0.3452
+  type: 'test'
+  ...
+# Subtest: dbt malformed input rejected
+ok 145 - dbt malformed input rejected
+  ---
+  duration_ms: 0.2372
+  type: 'test'
+  ...
+# Subtest: dbt missing nodes rejected
+ok 146 - dbt missing nodes rejected
+  ---
+  duration_ms: 0.2143
+  type: 'test'
+  ...
+# Subtest: dbt oversized manifest rejected
+ok 147 - dbt oversized manifest rejected
+  ---
+  duration_ms: 8.0127
+  type: 'test'
+  ...
+# Subtest: filters become indirect edges
+ok 148 - filters become indirect edges
+  ---
+  duration_ms: 0.5907
+  type: 'test'
+  ...
+# Subtest: mcp: initialize negotiates a known protocol version and advertises tools only
+ok 149 - mcp: initialize negotiates a known protocol version and advertises tools only
+  ---
+  duration_ms: 1.4974
+  type: 'test'
+  ...
+# Subtest: mcp: notifications get no response
+ok 150 - mcp: notifications get no response
+  ---
+  duration_ms: 0.1185
+  type: 'test'
+  ...
+# Subtest: mcp: tools/list exposes only read-only tools with strict JSON schemas
+ok 151 - mcp: tools/list exposes only read-only tools with strict JSON schemas
+  ---
+  duration_ms: 0.2943
+  type: 'test'
+  ...
+# Subtest: mcp: downstream_impact returns proof-carrying findings
+ok 152 - mcp: downstream_impact returns proof-carrying findings
+  ---
+  duration_ms: 14.2027
+  type: 'test'
+  ...
+# Subtest: mcp: upstream_dependencies and checklist work
+ok 153 - mcp: upstream_dependencies and checklist work
+  ---
+  duration_ms: 8.9754
+  type: 'test'
+  ...
+# Subtest: mcp: verify_evidence detects tampering
+ok 154 - mcp: verify_evidence detects tampering
+  ---
+  duration_ms: 3.1106
+  type: 'test'
+  ...
+# Subtest: mcp: tools ignore any path argument, so scope cannot be widened
+ok 155 - mcp: tools ignore any path argument, so scope cannot be widened
+  ---
+  duration_ms: 3.3923
+  type: 'test'
+  ...
+# Subtest: mcp: bad arguments become isError results; unknown tool and method become errors
+ok 156 - mcp: bad arguments become isError results; unknown tool and method become errors
+  ---
+  duration_ms: 2.6128
+  type: 'test'
+  ...
+# Subtest: mcp: end-to-end over stdio with the real CLI process
+ok 157 - mcp: end-to-end over stdio with the real CLI process
+  ---
+  duration_ms: 820.7712
+  type: 'test'
+  ...
+1..157
+# tests 157
+# suites 0
+# pass 153
+# fail 0
+# cancelled 0
+# skipped 4
+# todo 0
+# duration_ms 32774.1711

@@ -1,0 +1,4 @@
+$ lineagesutra scan --root fixtures/sample/sql --out C:\Users\VATSAL~1\AppData\Local\Temp\lineagesutra-proof-graph.json
+(exit 0)
+
+Wrote C:\Users\VATSAL~1\AppData\Local\Temp\lineagesutra-proof-graph.json

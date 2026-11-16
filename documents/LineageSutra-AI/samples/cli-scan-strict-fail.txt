@@ -1,0 +1,96 @@
+$ lineagesutra scan --root fixtures/unsupported --strict
+(exit 3)
+
+{
+  "format": "lineagesutra.scan.v1",
+  "tool": {
+    "name": "lineagesutra-ai",
+    "version": "0.2.0",
+    "parser": "lineagesutra-sql-subset/2"
+  },
+  "mode": "offline-source-analysis",
+  "rootLabel": "unsupported",
+  "summary": {
+    "sqlFiles": 1,
+    "datasets": 2,
+    "declaredDatasets": 1,
+    "externalDatasets": 1,
+    "dependencies": 1,
+    "tableEdges": 1,
+    "columnEdges": 0,
+    "indirectEdges": 0,
+    "warnings": 1,
+    "coverage": {
+      "supportedSubset": 0,
+      "partial": 1,
+      "unknown": 0
+    }
+  },
+  "sources": [
+    {
+      "path": "complex.sql",
+      "sha256": "be547daa522861b88858674a4a033afde60a5fca6711b555ef5f952244228e2a",
+      "bytes": 124,
+      "dialectHints": []
+    }
+  ],
+  "nodes": [
+    {
+      "id": "customers",
+      "kind": "external",
+      "columns": [],
+      "source": {
+        "file": null,
+        "line": null
+      },
+      "certainty": "inferred-from-reference"
+    },
+    {
+      "id": "unsupported_analysis",
+      "kind": "view",
+      "columns": [
+        "normalized_email"
+      ],
+      "source": {
+        "file": "complex.sql",
+        "line": 1
+      },
+      "certainty": "partial",
+      "sensitivityHints": [
+        "normalized_email"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "customers",
+      "to": "unsupported_analysis",
+      "type": "table",
+      "certainty": "supported-subset",
+      "source": {
+        "file": "complex.sql",
+        "line": 2,
+        "col": 28
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "file": "complex.sql",
+      "kind": "column-unknown",
+      "detail": "Wildcard over customers cannot be expanded (schema not declared in scanned sources)",
+      "line": 2
+    }
+  ],
+  "limits": [
+    "Supported subset: CREATE TABLE/VIEW [AS SELECT], CTAS, INSERT ... SELECT, CTEs, subqueries, JOINs, set operations, expressions, window functions and wildcard expansion where schemas are declared in the scanned sources. This does not certify any SQL dialect.",
+    "Edges are static observations of SQL text. Column edges are marked direct (plain copy) or derived (expression); WHERE/JOIN/GROUP/HAVING/ORDER dependencies are marked indirect.",
+    "Dynamic SQL, dbt/Jinja templates, stored procedures, MERGE/UPDATE, table functions, PIVOT and recursive CTEs are reported as warnings, never as confident edges.",
+    "No database connection, row data, query execution, freshness measurement or production verification is performed. The SHA-256 seal is tamper evidence, not a signature."
+  ],
+  "integrity": {
+    "algorithm": "sha256",
+    "hash": "186818b0dec0b17cac3da97e2a8b717d4aa1a490a3eabe9f62f78ba958e2b2be"
+  }
+}
+LineageSutra: gate tripped (exit 3) - 1 warning(s) under --strict

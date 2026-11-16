@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LineageSutra scan evidence schema",
+  "type": "object",
+  "required": [
+    "format",
+    "sources",
+    "nodes",
+    "edges",
+    "warnings",
+    "integrity"
+  ],
+  "properties": {
+    "format": {
+      "const": "lineagesutra.scan.v1"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "edges": {
+      "type": "array"
+    },
+    "warnings": {
+      "type": "array"
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "algorithm",
+        "hash"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
