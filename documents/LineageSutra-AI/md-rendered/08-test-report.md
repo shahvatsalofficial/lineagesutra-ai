@@ -30,7 +30,7 @@ Recorded 2026-11-16T18:03:17.735Z on win32/x64, Node v24.15.0. Raw output: `test
 
 ## Performance (this machine, synthetic)
 
-2,000 chained views: undefined ms median. 20,000-dataset impact: undefined ms median.
+2,000 chained views: 708 ms median. 20,000-dataset impact: 1085 ms median.
 
 ## Not covered
 

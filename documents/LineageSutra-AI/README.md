@@ -1,10 +1,10 @@
-# LineageSutra AI — documents
+# LineageSutra AI - documents
 
-Complete documentation set for **LineageSutra AI 0.2.0** (technical, functional, architecture, executive, user guide, security, evidence, test report, legal, roadmap, glossary, assurance).
+Documentation set for **LineageSutra AI 0.2.0**.
 
-- Start: `html/index.html` (open in a browser; self-contained, responsive, light/dark, printable)
-- Markdown sources: `md/` (with placeholders) and `md-rendered/` (numbers filled from the recorded run)
-- Proof: `test-results/` (TAP log, fuzz, environment) · Samples: `samples/` (real audit report in MD/HTML/JSON, CLI transcripts)
-- Rebuild: `node build.mjs` after `npm run proof` and `npm run audit` in `../../LineageSutra-AI`
+- Website: `html/index.html` (light by default, dark toggle, responsive; also published on GitHub Pages)
+- Markdown sources: `md/`; rendered with numbers filled in: `md-rendered/`
+- Diagrams: `assets/*.svg` (light) and `assets/*-dark.svg`, generated from real output by `scripts/make-diagrams.mjs`
+- Rebuild from the repo root: `npm run proof && node scripts/make-diagrams.mjs && node documents/LineageSutra-AI/build.mjs`
 
 Project: https://github.com/shahvatsalofficial/lineagesutra-ai

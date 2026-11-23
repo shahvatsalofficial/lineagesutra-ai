@@ -11,7 +11,7 @@ What a skeptical reader can check themselves.
 | Deterministic | audit: same seal, any file order | audit |
 | Tamper-evident | audit: three mutation kinds fail `verify` | `lineagesutra verify` |
 | Robust | audit: 3,000 seeded fuzz inputs, 500-deep nesting, 5,000 columns | audit |
-| Fast | audit: undefined ms / undefined ms | audit |
+| Fast | audit: 708 ms / 1085 ms | audit |
 | Package integrity | audit: 25 skills, 20 roles, schemas, no tokens | audit |
 
 ## Sample artifacts

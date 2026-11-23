@@ -21,7 +21,8 @@ const svg = (w, h, label, body) => `<svg xmlns="http://www.w3.org/2000/svg" view
 const box = (x, y, w, h, cls, lines) => `<rect class="${cls}" x="${x}" y="${y}" width="${w}" height="${h}" rx="10"/>` + lines.map((l, i) => `<text class="c${i === 0 ? ' b' : ' s'}" x="${x + w / 2}" y="${y + h / 2 + (i - (lines.length - 1) / 2) * 17 + 4}">${esc(l)}</text>`).join('');
 const arrow = (x1, y1, x2, y2, cls = 'ln') => `<path class="${cls}" d="M${x1},${y1} L${x2},${y2}" marker-end="url(#a)"/>`;
 const curve = (x1, y1, x2, y2, cls) => { const m = (x1 + x2) / 2; return `<path class="${cls}" d="M${x1},${y1} C${m},${y1} ${m},${y2} ${x2},${y2}"/>`; };
-const write = (name, s) => fs.writeFileSync(path.join(out, name), s);
+const MEDIA = /@media\(prefers-color-scheme:dark\)\{(:root\{[^}]*\})\}/;
+const write = (name, s) => { fs.writeFileSync(path.join(out, name), s.replace(MEDIA, "")); fs.writeFileSync(path.join(out, name.replace(".svg", "-dark.svg")), s.replace(MEDIA, "$1")); };
 
 const g = scan(path.join(root, 'fixtures/sample/sql'));
 const imp = impact(g, {table: 'customers', column: 'email', change: 'rename'});

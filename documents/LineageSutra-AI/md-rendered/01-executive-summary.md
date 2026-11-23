@@ -29,7 +29,7 @@ An offline command-line tool and 25 portable AI-agent skills. It reads SQL files
 - 157 automated tests: 153 pass, 0 fail, 4 skipped (recorded 2026-11-16T18:03:17.735Z on win32/x64, Node v24.15.0).
 - Gold corpus: 54/54 cases exact, 148 expected edges, 0 false edges, 0 missed edges. Author-labelled regression corpus, not an independent benchmark.
 - Self-audit: 28 checks passed, 0 failed, 7 explicitly not run.
-- 2,000-view scan median undefined ms; impact over a 20,000-dataset graph median undefined ms (this machine, synthetic data).
+- 2,000-view scan median 708 ms; impact over a 20,000-dataset graph median 1085 ms (this machine, synthetic data).
 
 ## Honest limits
 
