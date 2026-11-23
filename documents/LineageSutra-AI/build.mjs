@@ -18,9 +18,10 @@ const fill=s=>s.replace(/\{\{(\w+)\}\}/g,(m,k)=>{if(!(k in vars))throw new Error
 const cp=(from,to)=>{fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);};
 for(const d of [HERE,OUT])for(const sub of ['test-results','samples'])fs.rmSync(path.join(d,sub),{recursive:true,force:true});
 for(const f of fs.readdirSync(path.join(PROJECT,'docs/proof'))){const src=path.join(PROJECT,'docs/proof',f);if(f.startsWith('cli-')||f.startsWith('audit-report'))for(const d of [HERE,OUT])cp(src,path.join(d,'samples',f));else for(const d of [HERE,OUT])cp(src,path.join(d,'test-results',f));}
+fs.rmSync(path.join(OUT,'assets'),{recursive:true,force:true});fs.cpSync(path.join(HERE,'assets'),path.join(OUT,'assets'),{recursive:true});
 const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const inline=t=>{const codes=[];t=t.replace(/`([^`]+)`/g,(m,c)=>{codes.push(c);return `\u0000${codes.length-1}\u0000`;});t=esc(t);
- t=t.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>').replace(/&lt;(https?:\/\/[^&]+)&gt;/g,'<a href="$1">$1</a>');
+ t=t.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" loading="lazy">').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>').replace(/&lt;(https?:\/\/[^&]+)&gt;/g,'<a href="$1">$1</a>');
  return t.replace(/\u0000(\d+)\u0000/g,(m,i)=>`<code>${esc(codes[i])}</code>`);};
 function md2html(src){const L=src.split(/\r?\n/);let o=[],i=0;const heads=[];
  while(i<L.length){const l=L[i];
@@ -53,7 +54,7 @@ h1{font-size:2rem;line-height:1.2;margin:.2rem 0 1rem}h2{margin-top:2.2rem;paddi
 table{border-collapse:collapse;width:100%;font-size:.93rem}th,td{padding:.55rem .75rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--brand2);font-weight:600}tr:last-child td{border-bottom:0}
 pre{background:var(--code);padding:1rem;border-radius:10px;overflow:auto;border:1px solid var(--line);font-size:.88rem}code{background:var(--code);padding:.08rem .35rem;border-radius:5px;font:.9em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}pre code{background:none;padding:0}
 blockquote{margin:1rem 0;padding:.5rem 1rem;border-left:4px solid var(--brand);background:var(--brand2);border-radius:0 8px 8px 0}
-.pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line)}
+img{max-width:100%;height:auto;display:block;margin:1.2rem auto;border:1px solid var(--line);border-radius:12px}.pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line)}
 footer{color:var(--mute);font-size:.85rem;margin-top:2rem}
 .hero{background:linear-gradient(135deg,var(--brand2),var(--card));border:1px solid var(--line);border-radius:16px;padding:2rem;margin-bottom:1.5rem}
 .hero p{font-size:1.1rem;color:var(--mute);max-width:60ch}.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:.15rem .8rem;font-size:.85rem}.chip.ok{color:var(--ok);border-color:var(--ok)}
